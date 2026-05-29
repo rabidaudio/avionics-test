@@ -1,0 +1,22 @@
+{
+  "name": "test-avionics",
+  "version": "1.0.0",
+  "description": "",
+  "license": "ISC",
+  "author": "",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "build": "npx rollup -c"
+  },
+  "devDependencies": {
+    "@microsoft/msfs-sdk": "^2.3.3",
+    "@microsoft/msfs-types": "^1.14.6",
+    "@rollup/plugin-node-resolve": "^16.0.3",
+    "@rollup/plugin-typescript": "^12.3.0",
+    "rollup": "^2.80.0",
+    "rollup-plugin-import-css": "^4.2.1",
+    "tslib": "^2.8.1",
+    "typescript": "^6.0.3"
+  }
+}
