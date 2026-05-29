@@ -19,5 +19,8 @@
     "swank": "^1.4.1",
     "tslib": "^2.8.1",
     "typescript": "^6.0.3"
+  },
+  "dependencies": {
+    "react": "^19.2.6"
   }
 }

@@ -1,6 +1,6 @@
 /// <reference types="@microsoft/msfs-types/pages/vcockpit/core/vcockpit" />
 
-import { FSComponent, AvionicsPlugin, PluginSystem } from '@microsoft/msfs-sdk';
+import { FSComponent } from '@microsoft/msfs-sdk';
 import { MyComponent } from './MyComponent';
 
 export class MyInstrument extends BaseInstrument {
@@ -33,4 +33,4 @@ export class MyInstrument extends BaseInstrument {
   // }
 }
 
-registerInstrument('my-instrument', MyInstrument);
+// registerInstrument('my-instrument', MyInstrument);

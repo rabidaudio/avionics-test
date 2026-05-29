@@ -1,0 +1,120 @@
+// These enums are copy-pasted directly out of @microsoft/msfs-types
+// There may be a way to get typescript to generate them automatically but
+//      I couldn't figure it out.
+
+export enum EngineType {
+    ENGINE_TYPE_PISTON = 0,
+    ENGINE_TYPE_JET = 1,
+    ENGINE_TYPE_NONE = 2,
+    ENGINE_TYPE_HELO_TURBINE = 3,
+    ENGINE_TYPE_ROCKET = 4,
+    ENGINE_TYPE_TURBOPROP = 5
+}
+export enum PropellerType {
+    PROPELLER_TYPE_CONSTANT_SPEED = 0,
+    PROPELLER_TYPE_FIXED_PITCH = 1
+}
+export enum Aircraft {
+    CJ4 = 0,
+    A320_NEO = 1,
+    B747_8 = 2,
+    AS01B = 3,
+    AS02A = 4,
+    AS03D = 5
+}
+export enum ThrottleMode {
+    UNKNOWN = 0,
+    REVERSE = 1,
+    IDLE = 2,
+    AUTO = 3,
+    CLIMB = 4,
+    FLEX_MCT = 5,
+    TOGA = 6,
+    HOLD = 7
+}
+export enum AutopilotMode {
+    MANAGED = 0,
+    SELECTED = 1,
+    HOLD = 2
+}
+export enum MinimumReferenceMode {
+    RADIO = 0,
+    BARO = 1
+}
+export enum FlightState {
+    FLIGHT_STATE_BRIEFING = 0,
+    FLIGHT_STATE_INTRO_PLANE = 1,
+    FLIGHT_STATE_INTRO = 2,
+    FLIGHT_STATE_PREFLIGHT_GATE = 3,
+    FLIGHT_STATE_PREFLIGHT_PUSHBACK = 4,
+    FLIGHT_STATE_PREFLIGHT_TAXI = 5,
+    FLIGHT_STATE_PREFLIGHT_HOLDSHORT = 6,
+    FLIGHT_STATE_FLIGHT_RUNWAY = 7,
+    FLIGHT_STATE_FLIGHT_INITIAL_CLIMB = 8,
+    FLIGHT_STATE_FLIGHT_CLIMB = 9,
+    FLIGHT_STATE_FLIGHT_CRUISE = 10,
+    FLIGHT_STATE_FLIGHT_DESCENT = 11,
+    FLIGHT_STATE_JOINPLANE = 12,
+    FLIGHT_STATE_LANDING_APPROACH = 13,
+    FLIGHT_STATE_LANDING_FINAL = 14,
+    FLIGHT_STATE_LANDING_TOUCHDOWN = 15,
+    FLIGHT_STATE_LANDING_GROUNDROLL = 16,
+    FLIGHT_STATE_LANDING_TAXI = 17,
+    FLIGHT_STATE_LANDING_GATE = 18,
+    FLIGHT_STATE_LANDING_REST = 19,
+    FLIGHT_STATE_OUTRO = 20,
+    FLIGHT_STATE_WAITING = 21,
+    FLIGHT_STATE_TELEPORTTOSTATE = 22,
+    FLIGHT_STATE_FREEFLIGHT = 23,
+    FLIGHT_STATE_LANDINGCHALLENGE = 24,
+    FLIGHT_STATE_BUSHTRIP = 25
+}
+export enum FlightPhase {
+    FLIGHT_PHASE_PREFLIGHT = 0,
+    FLIGHT_PHASE_TAXI = 1,
+    FLIGHT_PHASE_TAKEOFF = 2,
+    FLIGHT_PHASE_CLIMB = 3,
+    FLIGHT_PHASE_CRUISE = 4,
+    FLIGHT_PHASE_DESCENT = 5,
+    FLIGHT_PHASE_APPROACH = 6,
+    FLIGHT_PHASE_GOAROUND = 7
+}
+export enum ApproachType {
+    APPROACH_TYPE_UNKNOWN = 0,
+    APPROACH_TYPE_GPS = 1,
+    APPROACH_TYPE_VOR = 2,
+    APPROACH_TYPE_NDB = 3,
+    APPROACH_TYPE_ILS = 4,
+    APPROACH_TYPE_LOCALIZER = 5,
+    APPROACH_TYPE_SDF = 6,
+    APPROACH_TYPE_LDA = 7,
+    APPROACH_TYPE_VORDME = 8,
+    APPROACH_TYPE_NDBDME = 9,
+    APPROACH_TYPE_RNAV = 10,
+    APPROACH_TYPE_LOCALIZER_BACK_COURSE = 11
+}
+export enum RunwayDesignator {
+    RUNWAY_DESIGNATOR_NONE = 0,
+    RUNWAY_DESIGNATOR_LEFT = 1,
+    RUNWAY_DESIGNATOR_RIGHT = 2,
+    RUNWAY_DESIGNATOR_CENTER = 3,
+    RUNWAY_DESIGNATOR_WATER = 4,
+    RUNWAY_DESIGNATOR_A = 5,
+    RUNWAY_DESIGNATOR_B = 6
+}
+export enum WorldRegion {
+    NORTH_AMERICA = 0,
+    AUSTRALIA = 1,
+    HAWAII = 2,
+    OTHER = 3
+}
+export enum NAV_AID_STATE {
+    OFF = 0,
+    ADF = 1,
+    VOR = 2
+}
+export enum NAV_AID_MODE {
+    NONE = 0,
+    MANUAL = 1,
+    REMOTE = 2
+}

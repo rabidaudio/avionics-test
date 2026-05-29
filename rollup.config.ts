@@ -7,7 +7,8 @@ export default [
     input: ['simulator.ts'],
     output: {
       dir: 'build',
-      format: 'ii'
+      format: 'iife',
+      name: 'simulator.js',
     },
     plugins: [css({ output: 'MyInstrument.css' }), resolve({browser: true}), typescript()]
   }
