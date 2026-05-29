@@ -4,7 +4,7 @@
   "description": "",
   "license": "ISC",
   "author": "",
-  "type": "commonjs",
+  "type": "module",
   "main": "index.js",
   "scripts": {
     "build": "npx rollup -c"
@@ -16,6 +16,7 @@
     "@rollup/plugin-typescript": "^12.3.0",
     "rollup": "^2.80.0",
     "rollup-plugin-import-css": "^4.2.1",
+    "swank": "^1.4.1",
     "tslib": "^2.8.1",
     "typescript": "^6.0.3"
   }
