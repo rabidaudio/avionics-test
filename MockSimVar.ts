@@ -41,10 +41,12 @@ Object.assign(window as any, { Avionics, SimVar, ...enums })
 class MockBaseInstrument extends HTMLElement {
 
     public connectedCallback(): void {
+        console.log('MockBaseInstrument#connectedCallback')
         // no-op, subclasses can override
     }
 
     public disconnectedCallback(): void {
+        console.log('MockBaseInstrument#disconnectedCallback')
         // no-op, subclasses can override
     }
 
@@ -163,10 +165,13 @@ Object.assign(window as any, {
     BaseInstrument: MockBaseInstrument,
     registerInstrument: (name: string, component: CustomElementConstructor) => {
         window.customElements.define(name, component)
-        window.addEventListener('DOMContentLoaded', () => {
-        //     console.log('register', name, component)
+        if (document.readyState === "loading") {
+            window.addEventListener('DOMContentLoaded', () => {
+                document.body.appendChild(new component())
+            })
+        } else {
             document.body.appendChild(new component())
-        })
+        }
     }
 })
 

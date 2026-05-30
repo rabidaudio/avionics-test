@@ -1,0 +1,20 @@
+registerInstrument
+    should be light wrapper around HTML custom element binding
+
+to mock: SimVar: msfs-simconnect-api-wrapper
+see js/SimVar.d.ts
+
+BaseInstrument - HTMLElement with some custom logic
+not all methods maybe need to be implemented?
+    getGameState(): GameState;
+        window OnVCockpitPanelAttributesChanged
+        see sdk/GameStateProvider
+
+
+Coherent ? may need custom API
+
+
+flightplanmanager?
+
+vcockpitlogic for Epic2
+

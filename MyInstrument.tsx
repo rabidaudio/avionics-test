@@ -3,7 +3,7 @@
 import { FSComponent } from '@microsoft/msfs-sdk';
 import { MyComponent } from './MyComponent';
 
-export class MyInstrument extends BaseInstrument {
+class MyInstrument extends BaseInstrument {
   // private pluginSystem?: PluginSystem<AvionicsPlugin<void>, void>;
 
   get templateID(): string {
@@ -12,6 +12,7 @@ export class MyInstrument extends BaseInstrument {
 
   public connectedCallback(): void {
     super.connectedCallback();
+    console.log('connectedCallback');
 
     // this.initPlugins();
     FSComponent.render(<MyComponent />, document.getElementById('InstrumentContent'));
@@ -33,4 +34,4 @@ export class MyInstrument extends BaseInstrument {
   // }
 }
 
-// registerInstrument('my-instrument', MyInstrument);
+registerInstrument('my-instrument', MyInstrument);

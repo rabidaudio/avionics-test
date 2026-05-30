@@ -4,12 +4,24 @@ import css from 'rollup-plugin-import-css';
 
 export default [
   {
-    input: ['simulator.ts'],
+    input: 'MyInstrument.tsx',
+    output: {
+      dir: 'build',
+      format: 'iife',
+    },
+    plugins: [css({ output: 'MyInstrument.css' }), resolve(), typescript({
+      exclude: ['g1000/**'] 
+    })]
+  },
+  {
+    input: 'simulator.ts',
     output: {
       dir: 'build',
       format: 'iife',
       name: 'simulator.js',
     },
-    plugins: [css({ output: 'MyInstrument.css' }), resolve({browser: true}), typescript()]
+    plugins: [resolve(), typescript({
+      exclude: ['g1000/**'] 
+    })]
   }
 ]

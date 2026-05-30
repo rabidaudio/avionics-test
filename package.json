@@ -16,11 +16,11 @@
     "@rollup/plugin-typescript": "^12.3.0",
     "rollup": "^2.80.0",
     "rollup-plugin-import-css": "^4.2.1",
-    "swank": "^1.4.1",
+    "swank": "^1.4.4",
     "tslib": "^2.8.1",
     "typescript": "^6.0.3"
   },
   "dependencies": {
-    "react": "^19.2.6"
+    "@github/include-fragment-element": "^6.4.1"
   }
 }

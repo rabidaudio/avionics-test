@@ -1,0 +1,4 @@
+[submodule "g1000"]
+	path = g1000
+	url = git@github.com:rabidaudio/msfs-avionics-mirror.git
+	branch = g1000
