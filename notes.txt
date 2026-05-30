@@ -15,6 +15,11 @@ Coherent ? may need custom API
 
 
 flightplanmanager?
+    this and other stuff is in MSFS2024/Packages/asobo-vcockpits-instruments
 
 vcockpitlogic for Epic2
 
+
+
+Don't actually need to compile G1000 -
+the results are in MSFS2024/Packages/workingtitle-instruments-g1000-v2

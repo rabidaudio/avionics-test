@@ -21,6 +21,7 @@
     "typescript": "^6.0.3"
   },
   "dependencies": {
-    "@github/include-fragment-element": "^6.4.1"
+    "@github/include-fragment-element": "^6.4.1",
+    "msfs-simconnect-api-wrapper": "^4.7.0"
   }
 }
