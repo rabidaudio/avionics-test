@@ -15,53 +15,41 @@ class IncludeInstrumentElement extends IncludeFragmentElement {
     return this
   }
 
-  connectedCallback(): void {
+  connectedCallback() {
     super.connectedCallback()
     this.addEventListener('include-fragment-replace', (e) => {
         e.preventDefault()
-        const fragment: DocumentFragment = (e as any).detail.fragment
+        const fragment = e.detail.fragment
         this.replaceWith(this.#rewriteElements(fragment))
-        this.#inject()
     })
   }
 
   // recursively mutate the fragment in place
-  #rewriteElements(parent: Node) {
+  #rewriteElements(parent) {
         for (const child of parent.childNodes) {
             if (child.nodeType == Node.ELEMENT_NODE) {
-                const el = child as Element
-                const type = el.getAttribute('type')
-                const src = el.getAttribute('import-script')
-                const id = el.getAttribute("id")
-                if (el.tagName === 'SCRIPT' && type == "text/html") {
+                const type = child.getAttribute('type')
+                const src = child.getAttribute('import-script')
+                const id = child.getAttribute("id")
+                if (child.tagName === 'SCRIPT' && type == "text/html") {
                     if (src) {
                         // script tag
                         const newEl = document.createElement('script')
                         newEl.setAttribute('src', src)
-                        parent.removeChild(el)
+                        parent.removeChild(child)
                         document.head.appendChild(newEl)
                     } else if (id) {
                         // html content
                         const newEl = document.createElement('div')
-                        newEl.innerHTML = el.innerHTML
-                        parent.replaceChild(newEl, el)
+                        newEl.innerHTML = child.innerHTML
+                        parent.replaceChild(newEl, child)
                     }
                 } else {
-                    this.#rewriteElements(el)
+                    this.#rewriteElements(child)
                 }
             }
         }
         return parent
-  }
-
-  // inject the element by name into the dom
-  #inject() {
-    const name = this.getAttribute('name')
-    if (!name) return
-    
-    const ctor = customElements.get('name')
-    console.log('inject', name, ctor)
-    if (ctor) document.body.appendChild(new ctor())
   }
 }
 

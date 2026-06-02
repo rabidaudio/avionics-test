@@ -9,19 +9,15 @@ export default [
       dir: 'build',
       format: 'iife',
     },
-    plugins: [css({ output: 'MyInstrument.css' }), resolve(), typescript({
-      exclude: ['g1000/**'] 
-    })]
+    plugins: [css({ output: 'MyInstrument.css' }), resolve(), typescript()]
   },
   {
-    input: 'src/simulator.ts',
+    input: 'src/simulator.js',
     output: {
       dir: 'build',
       format: 'iife',
       name: 'simulator.js',
     },
-    plugins: [resolve(), typescript({
-      exclude: ['g1000/**'] 
-    })]
+    plugins: [resolve(), typescript()]
   }
 ]

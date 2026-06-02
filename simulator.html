@@ -4,33 +4,7 @@
         <title></title>
         <meta charset="utf-8" />
 
-        <!-- <script>
-            const injectScript = (path) => {
-                const script = document.createElement('script')
-                script.setAttribute('src', path)
-                document.head.appendChild(script)
-            }
-            const injectScriptWhenReady = (path) => {
-                if (document.readyState === "loading") {
-                    window.addEventListener('DOMContentLoaded', () => {
-                        injectScript(path)
-                    })
-                } else {
-                    injectScript(path)
-                }
-            }
-            Object.assign(window, {
-                Include: {
-                    addScript: injectScriptWhenReady,
-                },
-                RegisterViewListener: (_name) => {},
-                simvar: {}
-            })
-        </script> -->
-        <!-- <script src="/JS/coherent.js"></script> -->
-        <!-- <script>
-            window.Coherent = window.engine
-        </script> -->
+        <script src="build/simulator.js"></script>
 
         <!-- Dependencies from MSFS Packages (adapted from VCockpit.html) -->
 
@@ -50,8 +24,6 @@
         <script type="text/javascript" src="/Pages/VCockpit/Core/VCockpit.js"></script>
 
         <link rel="stylesheet" href="/Pages/VCockpit/Instruments/Shared/BaseInstrument.css" />
-
-         <script src="build/simulator.js"></script>
     </head>
     <body>
     <vcockpit-panel id="panel"></vcockpit-panel>
