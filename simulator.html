@@ -1,9 +1,65 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <script src="./build/simulator.js"></script>
+        <title></title>
+        <meta charset="utf-8" />
+
+        <!-- <script>
+            const injectScript = (path) => {
+                const script = document.createElement('script')
+                script.setAttribute('src', path)
+                document.head.appendChild(script)
+            }
+            const injectScriptWhenReady = (path) => {
+                if (document.readyState === "loading") {
+                    window.addEventListener('DOMContentLoaded', () => {
+                        injectScript(path)
+                    })
+                } else {
+                    injectScript(path)
+                }
+            }
+            Object.assign(window, {
+                Include: {
+                    addScript: injectScriptWhenReady,
+                },
+                RegisterViewListener: (_name) => {},
+                simvar: {}
+            })
+        </script> -->
+        <!-- <script src="/JS/coherent.js"></script> -->
+        <!-- <script>
+            window.Coherent = window.engine
+        </script> -->
+
+        <!-- Dependencies from MSFS Packages (adapted from VCockpit.html) -->
+
+        <link rel="stylesheet" href="/SCSS/common.css" />
+
+        <script type="text/javascript" src="/JS/coherent.js"></script>
+        <script type="text/javascript" src="/JS/common.js"></script>
+        <script type="text/javascript" src="/JS/Types.js"></script>
+        <script type="text/javascript" src="/JS/simvar.js"></script>
+        <script type="text/javascript" src="/JS/avionics.js"></script>
+        <script type="text/javascript" src="/JS/simplane.js"></script>
+        <script type="text/javascript" src="/JS/Services/GenericDataListener.js"></script>
+
+        <script type="text/javascript" src="/Pages/VCockpit/Instruments/Shared/BaseInstrument.js"></script>
+        <script type="text/javascript" src="/Pages/VCockpit/Instruments/Shared/Utils/XMLLogic.js"></script>
+
+        <script type="text/javascript" src="/Pages/VCockpit/Core/VCockpit.js"></script>
+
+        <link rel="stylesheet" href="/Pages/VCockpit/Instruments/Shared/BaseInstrument.css" />
+
+         <script src="build/simulator.js"></script>
     </head>
     <body>
-        <include-instrument src="./MyInstrument.html"></include-instrument>
+    <vcockpit-panel id="panel"></vcockpit-panel>
+        <div id="vignettage" style="pointer-events:none; border:5px solid white; position:absolute; display:none; top:0; left:0; width:100%; height:100%; z-index:5"></div>
+        <img id="virtualmouse" src="/Icons/Mouse.svg" style="pointer-events:none; position:absolute; display:none; top:0; left:0; width:60px; height:60px; z-index:5" />
+        <!--<div id="debugmouse" style="pointer-events:none; background-color:red; position:absolute; display:none; top:0; left:0; width:15px; height:15px; z-index:5"></div>-->
+
+        <include-instrument name="my-instrument" src="/Pages/VCockpit/Instruments/MyInstrument/MyInstrument.html"></include-instrument>
+        <my-instrument></my-instrument>
     </body>
 </html>

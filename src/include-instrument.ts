@@ -1,11 +1,4 @@
 import { IncludeFragmentElement } from "@github/include-fragment-element"
-import "./MockSimVar"
-
-import '@microsoft/msfs-sdk'
-
-// import { MyInstrument } from "./MyInstrument"
-
-// registerInstrument('my-instrument', MyInstrument)
 
 // This wraps @github/include-fragment-element using events to adjust the
 // content to support MSFS's bizarre instrument html formats. Notably,
@@ -24,11 +17,11 @@ class IncludeInstrumentElement extends IncludeFragmentElement {
 
   connectedCallback(): void {
     super.connectedCallback()
-    // const fragment = document.importNode(template.content, true)
     this.addEventListener('include-fragment-replace', (e) => {
         e.preventDefault()
         const fragment: DocumentFragment = (e as any).detail.fragment
         this.replaceWith(this.#rewriteElements(fragment))
+        this.#inject()
     })
   }
 
@@ -45,11 +38,6 @@ class IncludeInstrumentElement extends IncludeFragmentElement {
                         // script tag
                         const newEl = document.createElement('script')
                         newEl.setAttribute('src', src)
-                        // el.setAttribute("type", "text/javascript")
-                        // el.removeAttribute("type")
-                        // el.removeAttribute('import-script')
-                        // el.setAttribute("src", src)
-                        // parent.replaceChild(newEl, el)
                         parent.removeChild(el)
                         document.head.appendChild(newEl)
                     } else if (id) {
@@ -64,6 +52,16 @@ class IncludeInstrumentElement extends IncludeFragmentElement {
             }
         }
         return parent
+  }
+
+  // inject the element by name into the dom
+  #inject() {
+    const name = this.getAttribute('name')
+    if (!name) return
+    
+    const ctor = customElements.get('name')
+    console.log('inject', name, ctor)
+    if (ctor) document.body.appendChild(new ctor())
   }
 }
 

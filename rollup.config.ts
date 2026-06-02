@@ -14,7 +14,7 @@ export default [
     })]
   },
   {
-    input: 'simulator.ts',
+    input: 'src/simulator.ts',
     output: {
       dir: 'build',
       format: 'iife',

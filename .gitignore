@@ -2,4 +2,7 @@ node_modules/
 build/
 .rollup.cache/
 .venv/
+.DS_Store
 
+Packages/
+Packages.zip

@@ -1,20 +1,6 @@
 // This file implements the minimum interfaces defined in @microsoft/msfs-types
 // and populates the global namespace with them so they are available when executing
 // instruments in a simulated environment.
-import { FSComponent } from "@microsoft/msfs-sdk"
-
-
-import * as enums from "./enums"
-
-export const Avionics = {
-    Utils: {
-        DEG2RAD: 0.0174533,
-        RAD2DEG: 57.2958,
-        DEGREE_SYMBOL: '°',
-        METER2FEET: 3.28084,
-        FEET2METER: 0.3048,
-    }
-};
 
 export const SimVar = {
 
@@ -36,7 +22,7 @@ export const SimVar = {
 
 };
 
-Object.assign(window as any, { Avionics, SimVar, ...enums })
+Object.assign(window as any, { SimVar })
 
 class MockBaseInstrument extends HTMLElement {
 
@@ -160,7 +146,6 @@ class MockBaseInstrument extends HTMLElement {
     protected clearAlwaysList(): void;
      */
 }
-
 Object.assign(window as any, {
     BaseInstrument: MockBaseInstrument,
     registerInstrument: (name: string, component: CustomElementConstructor) => {
