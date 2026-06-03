@@ -38,11 +38,11 @@ class IncludeInstrumentElement extends IncludeFragmentElement {
                         newEl.setAttribute('src', src)
                         parent.removeChild(child)
                         document.head.appendChild(newEl)
-                    } else if (id) {
-                        // html content
-                        const newEl = document.createElement('div')
-                        newEl.innerHTML = child.innerHTML
-                        parent.replaceChild(newEl, child)
+                    // } else if (id) {
+                    //     // html content
+                    //     const newEl = document.createElement('div')
+                    //     newEl.innerHTML = child.innerHTML
+                    //     parent.replaceChild(newEl, child)
                     }
                 } else {
                     this.#rewriteElements(child)
