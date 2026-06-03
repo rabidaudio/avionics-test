@@ -11,6 +11,11 @@
         <link rel="stylesheet" href="/SCSS/common.css" />
 
         <script type="text/javascript" src="/JS/coherent.js"></script>
+        <script>
+            engine.browserCallbackOn = (name, callback, context) => console.log('browserCallbackOn', name, context)
+            engine.browserCallbackOff = (name, handler, context) => console.log('browserCallbackOff', name, context)
+            engine.browserCallbackMock = (name, args, isCppCall, isEvent) => console.log('browserCallbackMock', name, args, isCppCall, isEvent)
+        </script>
         <script type="text/javascript" src="/JS/common.js"></script>
         <script type="text/javascript" src="/JS/Types.js"></script>
         <script type="text/javascript" src="/JS/simvar.js"></script>

@@ -23,3 +23,87 @@ vcockpitlogic for Epic2
 
 Don't actually need to compile G1000 -
 the results are in MSFS2024/Packages/workingtitle-instruments-g1000-v2
+
+
+------
+
+
+Running Coherent GT debugger
+C:\Tools\Coherent GT Debugger\Debugger.exe
+http://localhost:19999
+
+<html style=".... --viewportWidth, viewportHeight ...."
+<head>
+    normal stuff
+    link rel="import" /pages/vcockpit/..../wtg1000_pfd.html
+    link rel=stylesheet coui://html_UI/pages/vcockpit/..../PFD.css
+    __ content from wtg1000_pfd.html ___
+    __ true imports from import decls, e.g.:
+        script type=text/javascript coui://html_ui/js/datastorage.js
+
+<body class="contentLoaded" gamestate="ingame"
+
+
+
+Could run electron app - then coui could be native
+
+global.engineForceEnableMocking = true sets engine.forceEnableMocking
+if set or not attached:
+    on -> 
+        delegates to browserCallbackOn if set
+        creates a handler if none exist
+    off ->
+        delegates to browserCallbackOff if set
+
+/// @function engine.mock
+/// Mocks a C++ function call with the specified function.
+/// Will also work in Coherent GT only if *engineForceEnableMocking* is set to *true*.
+/// @param {String} name name of the event
+/// @param {Function} mock a function to be called in-place of your native binding
+/// @param {Boolean} isEvent whether you are mocking an event or function call
+if (engine.isAttached && !engine.forceEnableMocking) {
+    engine.mock = function (_name, _mock, _isEvent) { };
+}
+
+when engineForceEnableMocking set, mock calls browserCallbackMock if set
+
+https://coherent-labs.com/Documentation/cpp-gt/d9/d19/javascript.html
+
+
+after constructing VCockpit,
+    ShowVCockpitPanel with:
+
+this.data : VCockpitPanelData
+    daAttributes: Attribute
+        quality=medium
+        gamestate=ingame
+        gamepad=false
+        displayVCockpitFps=false
+    daInstruments: Array
+        0: VCockpitInstrumentData
+            iGUId: 21
+            sContainer: ""
+            sUrl: "NavSystems/WTG1000v2/PFD/WTG1000_PFD.html
+            vPosAndSize: Vec4 w:768 x:0 y:0 z:1024
+    sConfigFile: String
+        "<PlaneHTMLConfig> ...  // panel.xml for plane?
+    sName: "VCockpit01"
+    vDisplaySize: Vec2 1024x768
+    vLogicalSize: ditto
+url=coui://html_ui/Pages/VCockpit/..../WTG1000_PFD.html
+
+added to <vcockpit-panel> : <wtg1000-pfd guid=21 style=... url=url created=true
+
+
+
+
+engine native methods:
+    AddOrRemoveOnHandler
+    TriggerEvent
+    SendMessage
+
+window.gameConfig = "SUBMISSION"
+window.gamePlatform = "PC"
+
+window.location: coui://html_UI/Pages/VCockpit/Core/VCockpit.html
+

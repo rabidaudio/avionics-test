@@ -4,6 +4,8 @@ import "./mock-simvar.js"
 // register a protocol handler for coui:// urls (just http)
 // window.navigator.registerProtocolHandler("web+coui", window.location.href + "/coui?src=%s")
 
+window.engineForceEnableMocking = true
+
 window.addEventListener('DOMContentLoaded', () => {
     let data = new VCockpitPanelData();
     data.sName = "VCockpit01";
@@ -21,6 +23,7 @@ window.addEventListener('DOMContentLoaded', () => {
     Coherent.trigger("ShowVCockpitPanel", data);
     setTimeout(() => { Coherent.trigger("OnAllInstrumentsLoaded"); }, 5000);
 })
+
 
 // window.engine.trigger('ShowVCockpitPanel', {
 //     sName: ,
